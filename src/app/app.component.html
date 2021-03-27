@@ -1,27 +1,37 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/">MyApp</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<div class="example-container">
+
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon *ngIf="!snav.opened">menu</mat-icon>
+      <mat-icon *ngIf="snav.opened">close</mat-icon>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="cliente">Cliente <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="factura/agregarfactura">Factura</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="producto">Producto</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="container">
-  <div class="row">
-    <router-outlet></router-outlet>
-  </div>
+    <h1 class="example-app-name">Factura Smart</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container">
+    <mat-sidenav #snav style="width: 200px">
+      <button mat-menu-item (click)="snav.toggle()" style="cursor: pointer" routerLink="/cliente">
+        <mat-icon>face</mat-icon>
+        <span>Cliente</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="snav.toggle()" style="cursor: pointer" routerLink="/producto">
+        <mat-icon>shopping_basket</mat-icon>
+        <span>Producto</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="snav.toggle()" style="cursor: pointer" routerLink="/factura">
+        <mat-icon>article</mat-icon>
+        <span>Factura</span>
+      </button>
+      <mat-divider></mat-divider>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+
 </div>

@@ -1,1 +1,65 @@
-<p>producto works!</p>
+<div [hidden]="route.children.length !== 0">
+    <table mat-table matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="documento">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Doc. </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.documento}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nombre">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="apellido">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.apellido}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="correo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.correo}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="nombreEmpresa">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Empresa </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nombreEmpresa}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="cargo">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Cargo </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.cargo}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="ciudad">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Ciudad </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.ciudad.nombre}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-button color="primary" [routerLink]="['/conductor/editar/', element.idUsuario]">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-button color="accent">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </table>
+
+
+        <div class="example-label"></div>
+<div class="example-button-row">
+    <button mat-fab color="primary" style="float: right" routerLink="agregar">
+        <mat-icon>plus_one</mat-icon>
+    </button>
+</div>
+</div>
+
+
+<router-outlet></router-outlet>

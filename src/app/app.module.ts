@@ -1,3 +1,4 @@
+import { MaterialModule } from './_material/material/material.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AgregarproductoComponent } from './pages/producto/agregarproducto/agregarproducto.component';
 import { AgregarfacturaComponent } from './pages/factura/agregarfactura/agregarfactura.component';
 import { AgregarclienteComponent } from './pages/cliente/agregarcliente/agregarcliente.component';
+import { DetalleComponent } from './pages/detalle/detalle.component';
 
 @NgModule({
   declarations: [
@@ -20,12 +22,14 @@ import { AgregarclienteComponent } from './pages/cliente/agregarcliente/agregarc
     ProductoComponent,
     AgregarproductoComponent,
     AgregarfacturaComponent,
-    AgregarclienteComponent
+    AgregarclienteComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MaterialModule,
     HttpClientModule
   ],
   providers: [],
