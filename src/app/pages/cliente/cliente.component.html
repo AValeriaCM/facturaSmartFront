@@ -1,1 +1,56 @@
-<p>cliente works!</p>
+<br><br>
+<h1 style="text-align: center; font-weight: bold; color: blue;">CLIENTES</h1>
+<br><br>
+<div align="center" [hidden]="route.children.length !== 0">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="nombre">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="apellido">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.apellido}} </mat-cell>
+        </ng-container>
+
+        <ng-container  matColumnDef="telefono">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Telefono </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.telefono}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="direccion">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Direccion </mat-header-cell>
+            <mat-cell id="direccion" *matCellDef="let element"> {{element.direccion}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+            <mat-header-cell style="flex: 0 0 30%;" *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>
+            <mat-cell style="flex: 0 0 30%;" *matCellDef="let element"> {{element.email}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+               
+                <button mat-button color="accent">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </table>
+
+
+    <div class="example-label"></div>
+    <div class="example-button-row">
+        <button mat-fab color="primary" style="float: right; margin: 5%;" routerLink="agregar">
+            <mat-icon>plus_one</mat-icon>
+        </button>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>

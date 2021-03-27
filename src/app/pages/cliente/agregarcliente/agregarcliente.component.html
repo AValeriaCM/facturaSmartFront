@@ -1,1 +1,47 @@
-<p>agregarcliente works!</p>
+<br><br>
+<h1 style="text-align: center; font-weight: bold; color: blue;">Agregar Cliente</h1>
+<br><br>
+<form align="center" [formGroup]= "form" #frmUsuario="ngForm" (ngSubmit)="guardar()">
+
+    <mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="nombre" maxlength="20">
+        <mat-error *ngIf= "nombre.invalid && nombre.errors.required">Nombre es requerido</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Apellido" formControlName="apellido" maxlength="20">
+        <mat-error *ngIf= "apellido.invalid && apellido.errors.required">Apellido es requerido</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Telefono" type="number" formControlName="telefono" maxlength="100">
+        <mat-error *ngIf= "telefono.invalid && telefono.errors.required">Direccion es requerido</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Correo electrónico" type="email" formControlName="email" maxlength="200">
+        <mat-error *ngIf= "email.invalid && email.errors.required">Correo es requerido</mat-error>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Fecha nacimiento" type="date" formControlName="fecha_nacimiento" maxlength="200">
+        <mat-error *ngIf= "fecha_nacimiento.invalid && fecha_nacimiento.errors.required">Fecha es requerido</mat-error>
+
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="Direccion" formControlName="direccion" maxlength="100">
+        <mat-error *ngIf= "direccion.invalid && direccion.errors.required">Direccion es requerido</mat-error>
+    </mat-form-field>
+    
+    <br>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]= "frmUsuario.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Guardar</span>
+    </button>
+    <button mat-raised-button color="warn" type="button" routerLink="/cliente">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>

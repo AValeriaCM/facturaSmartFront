@@ -1,1 +1,52 @@
-<p>agregarfactura works!</p>
+
+<form align="center" [formGroup]= "form" #frmUsuario="ngForm" (ngSubmit)="guardar()">
+
+    <mat-form-field>
+        <input matInput placeholder="Fecha" type="date" formControlName="fecha" >
+        <mat-error *ngIf= "fecha.invalid && fecha.errors.required">Fecha es requerido</mat-error>
+    </mat-form-field>
+    
+    <br>
+    <mat-form-field>
+        <mat-label>Seleccione Cliente: </mat-label>
+        <select matNativeControl (change)= "seleccionarCliente($event)">
+            <option *ngFor="let valor of listaClientes" [value]="valor.id_cliente"
+                [selected]="clienteSelect === valor.id_cliente.toString()">
+                {{valor.nombre}}
+            </option>
+        </select>
+    </mat-form-field>
+    
+        <br>    
+        <h3 style="font-weight: bold;">Detalles de la factura</h3>
+        <mat-form-field>
+            <input matInput placeholder="Cantidad" type="number" formControlName="cantidad" >
+            <mat-error *ngIf= "cantidad.invalid && cantidad.errors.required">Cantidad es requerido</mat-error>
+        </mat-form-field>
+        
+        <br>
+        <mat-form-field>
+            <input matInput placeholder="Precio" type="number" formControlName="precio" >
+            <mat-error *ngIf= "precio.invalid && precio.errors.required">Precio es requerido</mat-error>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>Seleccione Producto: </mat-label>
+            <select matNativeControl (change)= "seleccionarProducto($event)">
+                <option *ngFor="let valor of listaProductos" [value]="valor.id_producto"
+                    [selected]="productoSelect === valor.id_producto.toString()">
+                    {{valor.nombre}}
+                </option>
+            </select>
+        </mat-form-field>
+        <br>
+
+    <button mat-raised-button color="primary" type="submit" >
+        <mat-icon>done</mat-icon>
+        <span>Guardar</span>
+    </button>
+    <button mat-raised-button color="warn" type="button" routerLink="/cliente">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+</form>

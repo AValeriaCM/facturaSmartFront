@@ -1,1 +1,40 @@
-<p>factura works!</p>
+<br><br>
+<h1 style="text-align: center; font-weight: bold; color: blue;">Factura</h1>
+<br><br>
+<div align="center" [hidden]="route.children.length !== 0">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="fecha">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.fecha}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="cliente">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.id_cliente}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="acciones">
+            <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+            <mat-cell *matCellDef="let element">
+               
+                <button mat-button color="accent">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </table>
+
+
+    <div class="example-label"></div>
+    <div class="example-button-row">
+        <button mat-fab color="primary" style="float: right; margin: 5%;" routerLink="agregar">
+            <mat-icon>plus_one</mat-icon>
+        </button>
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>

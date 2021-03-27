@@ -1,39 +1,22 @@
-<div [hidden]="route.children.length !== 0">
-    <table mat-table matSort class="mat-elevation-z8">
-
-        <ng-container matColumnDef="documento">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Doc. </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.documento}} </mat-cell>
-        </ng-container>
+<br><br>
+<h1 style="text-align: center; font-weight: bold; color: blue;">PRODUCTOS</h1>
+<br><br>
+<div align="center" [hidden]="route.children.length !== 0">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
         <ng-container matColumnDef="nombre">
             <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="apellido">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.apellido}} </mat-cell>
+        <ng-container matColumnDef="precio">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Precio </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.precio}} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="correo">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Correo </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.correo}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="nombreEmpresa">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Empresa </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.nombreEmpresa}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="cargo">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Cargo </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.cargo}} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="ciudad">
-            <mat-header-cell *matHeaderCellDef mat-sort-header> Ciudad </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.ciudad.nombre}} </mat-cell>
+        <ng-container matColumnDef="stock">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Stock </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.stock}} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="acciones">
@@ -53,12 +36,12 @@
     </table>
 
 
-        <div class="example-label"></div>
-<div class="example-button-row">
-    <button mat-fab color="primary" style="float: right" routerLink="agregar">
-        <mat-icon>plus_one</mat-icon>
-    </button>
-</div>
+    <div class="example-label"></div>
+    <div class="example-button-row">
+        <button mat-fab color="primary"  style="float: right; margin: 5%;"  routerLink="agregar">
+            <mat-icon>plus_one</mat-icon>
+        </button>
+    </div>
 </div>
 
 

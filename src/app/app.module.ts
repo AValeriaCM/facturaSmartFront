@@ -13,6 +13,7 @@ import { AgregarproductoComponent } from './pages/producto/agregarproducto/agreg
 import { AgregarfacturaComponent } from './pages/factura/agregarfactura/agregarfactura.component';
 import { AgregarclienteComponent } from './pages/cliente/agregarcliente/agregarcliente.component';
 import { DetalleComponent } from './pages/detalle/detalle.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { DetalleComponent } from './pages/detalle/detalle.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule, ReactiveFormsModule,
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule

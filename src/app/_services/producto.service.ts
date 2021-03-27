@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductoService {
 
-  private url: any = `${environment.HOST}productos`;
+  private url: any = `${environment.HOST}productos/`;
 
   mensajeCambio = new Subject<string>();
 

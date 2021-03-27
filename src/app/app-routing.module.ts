@@ -9,13 +9,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'factura', component: FacturaComponent,  children : [
-    {path: 'agregarfactura', component: AgregarfacturaComponent},
+    {path: 'agregar', component: AgregarfacturaComponent},
   ] },
   { path: 'cliente', component: ClienteComponent, children : [
-    {path: 'agregarcliente', component: AgregarclienteComponent},
+    {path: 'agregar', component: AgregarclienteComponent},
   ] },
   { path: 'producto', component: ProductoComponent, children : [
-    {path: 'agregarproducto', component: AgregarproductoComponent},
+    {path: 'agregar', component: AgregarproductoComponent},
   ] },
   { path: '', component: FacturaComponent }
 ];

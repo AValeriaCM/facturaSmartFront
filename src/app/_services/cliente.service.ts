@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClienteService {
 
-  private url: any = `${environment.HOST}clientes`;
+  private url: any = `${environment.HOST}clientes/`;
 
   mensajeCambio = new Subject<string>();
 

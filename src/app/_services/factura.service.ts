@@ -9,14 +9,14 @@ import { Injectable } from '@angular/core';
 })
 export class FacturaService {
 
-  private url: any = `${environment.HOST}facturas`;
+  private url: any = `${environment.HOST}facturas/`;
 
   mensajeCambio = new Subject<string>();
 
   constructor(private http: HttpClient) { }
 
   listar(){
-    return this.http.get<Factura[]>(`${this.url}listar`);
+    return this.http.get<any>(`${this.url}listar`);
   }
 
   guardar(factura: Factura){

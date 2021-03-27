@@ -10,7 +10,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProductoComponent implements OnInit {
 
-  displayedColumns: string[] = ['documento', 'nombre', 'apellido', 'correo'];
+  displayedColumns: string[] = ['nombre', 'precio', 'stock'];
+  dataSource: any[];
 
   constructor(private productoService: ProductoService,
               public route: ActivatedRoute,
@@ -21,7 +22,18 @@ export class ProductoComponent implements OnInit {
     this.productoService.mensajeCambio.subscribe(data => {
       this.openSnackBar(data);
     });
+    /**
+     * Listar automaticamente los datos
+     */
+    this.productoService.listar().subscribe(res => {
+      this.dataSource = res;
+      console.log(res)
+    });
   }
+  /**
+   * Mensaje snackbar
+   * @param message 
+   */
   openSnackBar(message: string) {
     this.snackBar.open(message, 'Información', {
       duration: 3000,
